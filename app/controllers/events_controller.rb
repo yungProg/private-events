@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 
   def show
     # @event = Event.where(creator_id: event_params[:creator_id])
-    @event = current_user.created_events
+    @event = current_user.created_events.find(params[:id])
   end
 
   def new
@@ -30,5 +30,6 @@ class EventsController < ApplicationController
 
   def event_params
     params.expect(event: [ :theme, :event_date, :venue, :description ])
+    # params.require(:event).permit(:theme, :event_date, :venue, :description)
   end
 end
