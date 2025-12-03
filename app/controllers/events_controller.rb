@@ -9,10 +9,26 @@ class EventsController < ApplicationController
     @event = current_user.created_events
   end
 
+  def new
+    @event = Event.new
+  end
+
+  def create
+    @event = current_user.created_events.build(event_params)
+
+    if @event.save
+      flash[:notice] = "Event successfully created"
+      redirect_to @event
+    else
+      flash.now = "Error creating an event. Please try again"
+      render :new, status: :unprocessable_entity
+    end
+  end
+
 
   private
 
   def event_params
-    params.expect(event: [ :theme, :event_date, :venue, :creator_id ])
+    params.expect(event: [ :theme, :event_date, :venue ])
   end
 end
