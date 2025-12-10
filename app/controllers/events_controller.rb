@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 
   def show
     # @event = Event.where(creator_id: event_params[:creator_id])
-    @event = current_user.created_events.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new
