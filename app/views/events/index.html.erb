@@ -6,4 +6,5 @@
         <li><%= event.venue %></li>
         <li><%= event.description %></li>
     </ul>
+    <p><%= link_to "Show more", event_path(event.id) %></p>
 <% end %>
