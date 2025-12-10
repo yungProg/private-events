@@ -20,7 +20,7 @@ class EventsController < ApplicationController
       flash[:notice] = "Event successfully created"
       redirect_to @event
     else
-      flash.now = "Error creating an event. Please try again"
+      flash.now[:error] = "Error creating an event. Please try again"
       render :new, status: :unprocessable_entity
     end
   end
