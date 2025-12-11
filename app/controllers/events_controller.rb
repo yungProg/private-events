@@ -1,8 +1,12 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @past_events = Event.past
-    @pending_events = Event.pending
+    # @past_events = Event.past
+    # @pending_events = Event.pending
+    # Replaced class methods above with :scope in model
+
+    @past_events = Event.past_events
+    @pending_events = Event.pending_events
   end
 
   def show
