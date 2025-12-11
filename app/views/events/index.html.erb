@@ -1,4 +1,5 @@
 <h1>PRIVATE EVENTS</h1>
+<p><%= link_to "User profile", user_path(current_user.id) %></p>
 <div><%= link_to "Created events", user_path(current_user.id) %></div>
 <% @events.each do |event| %>
     <ul>

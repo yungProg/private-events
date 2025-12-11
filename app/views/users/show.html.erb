@@ -9,3 +9,8 @@
         <li><%= event.description %></li>
     </ul>
 <% end %>
+
+<h2>Attended Events</h2>
+<% current_user.attended_events.each do |event| %>
+    <p><%= event.theme %></p>
+<% end %>
