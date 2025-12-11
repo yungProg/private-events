@@ -1,4 +1,6 @@
-<h1>PRIVATE EVENTS</h1>
+<%= link_to events_path do%>
+    <h1>PRIVATE EVENTS</h1>
+<% end %>
 <p><%= link_to "User profile", user_path(current_user.id) %></p>
 <div><%= link_to "Created events", user_path(current_user.id) %></div>
 <h2>Past Events</h2>
