@@ -5,3 +5,9 @@
     <li><%= @event.venue %></li>
     <li><%= @event.venue %></li>
 </ul>
+<div><%= button_to "Attend event", event_event_attendings_path(@event), method: :post %></div>
+
+<h2>Attendees</h2>
+<% @event.attendees.each do |attendee| %>
+    <p><%= attendee.email %></p>
+<% end %>
