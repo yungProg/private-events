@@ -11,6 +11,12 @@
 <% end %>
 
 <h2>Attended Events</h2>
+<h3>Past Events</h3>
 <% current_user.attended_events.each do |event| %>
-    <p><%= event.theme %></p>
+    <p><%= event.theme if event.event_date < Time.now %></p>
+<% end %>
+
+<h3>Pending Events</h3>
+<% current_user.attended_events.each do |event| %>
+    <p><%= event.theme if event.event_date > Time.now %></p>
 <% end %>
