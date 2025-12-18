@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = Event.new(status: :privatized)
   end
 
   def create

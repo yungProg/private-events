@@ -21,10 +21,7 @@
             <%= form.text_area "description" %>
         </div>
         <div class="status-wrapper">
-            <%= form.radio_button :status, :privatized, checked: true %>
-            <%=form.label :status_privatized, "Make it private" %><br>
-            <%= form.radio_button :status, :publicized %>
-            <%=form.label :status_publicized, "Make it public"%><br>
+            <%= form.collection_radio_buttons :status, Event.statuses.keys, :to_s, :humanize %>
         </div>
         <%= form.submit %>
     </div>
