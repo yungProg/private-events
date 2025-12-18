@@ -10,6 +10,7 @@
         <li><%= event.venue %></li>
         <li><%= event.description %></li>
     </ul>
+    <%= link_to "Invite", new_event_event_attending_path(event) %>
 <% end %>
 
 <h2>Attended Events</h2>

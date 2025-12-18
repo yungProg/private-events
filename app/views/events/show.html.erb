@@ -7,9 +7,12 @@
     <li><%= @event.venue %></li>
     <li><%= @event.venue %></li>
 </ul>
-<div><%= button_to "Attend event", event_event_attendings_path(@event), method: :post %></div>
+<% unless @event.creator == current_user %>
+<div><%= button_to "Attend event",  event_event_attending_path(@event, response: 1), method: :patch %>
+<%= button_to "Decline invitation",  event_event_attending_path(@event, response: 0), method: :patch %></div>
+<% end %>
 
 <h2>Attendees</h2>
-<% @event.attendees.each do |attendee| %>
-    <p><%= attendee.email %></p>
+<% @attendings.each do |attendee| %>
+    <p><%= User.find(attendee.event_attendee_id).email %></p>
 <% end %>

@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   def show
     # @event = Event.where(creator_id: event_params[:creator_id])
     @event = Event.find(params[:id])
+    @attendings = EventAttending.where("attended_event_id = ? AND rsvp = ?", @event.id, 1)
   end
 
   def new

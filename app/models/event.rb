@@ -16,4 +16,6 @@ class Event < ApplicationRecord
   scope :past_events, -> { where("event_date < ?", Time.now) }
 
   scope :pending_events, -> { where("event_date >= :today", today: Time.now) }
+
+  enum :status, { publicized: 0, privatized: 1 }
 end
