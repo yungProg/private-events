@@ -20,6 +20,12 @@
             <%= form.label "description"%><br>
             <%= form.text_area "description" %>
         </div>
+        <div class="status-wrapper">
+            <%= form.radio_button :status, :privatized, checked: true %>
+            <%=form.label :status_privatized, "Make it private" %><br>
+            <%= form.radio_button :status, :publicized %>
+            <%=form.label :status_publicized, "Make it public"%><br>
+        </div>
         <%= form.submit %>
     </div>
 <% end %>

@@ -10,8 +10,8 @@ class EventAttendingsController < ApplicationController
     @invitee = User.find(params[:event_attending][:invitee_id])
 
     unless @event.attendees.include?(@invitee)
-      @event.attendees << @invitee
-      flash[:notice] = "#{@invitee.email} has been added to the guests list"
+      @event.event_attendings.create event_attendee: @invitee
+      flash[:notice] = "#{@invitee.email} has been invited"
       redirect_to event_path(params[:event_id])
     else
       flash[:error] = "#{@invitee.email} has already been invited"

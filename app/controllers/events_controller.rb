@@ -58,7 +58,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.expect(event: [ :theme, :event_date, :venue, :description ])
+    params.expect(event: [ :theme, :event_date, :venue, :description, :status ])
     # params.require(:event).permit(:theme, :event_date, :venue, :description)
   end
 end
