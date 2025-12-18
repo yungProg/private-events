@@ -1,0 +1,25 @@
+<%= link_to events_path do%>
+    <h1>PRIVATE EVENTS</h1>
+<% end %>
+<h2>Edit event</h2>
+<%= form_with model: @event do |form| %>
+    <div class="form-container">
+        <div class="theme-wrapper">
+            <%= form.label "theme"%><br>
+            <%= form.text_field "theme" %>
+        </div>
+        <div class="venue-wrapper">
+            <%= form.label "venue"%><br>
+            <%= form.text_field "venue" %>
+        </div>
+        <div class="event-date-wrapper">
+            <%= form.label "event_date"%><br>
+            <%= form.datetime_select "event_date" %>
+        </div>
+        <div class="description-wrapper">
+            <%= form.label "description"%><br>
+            <%= form.text_area "description" %>
+        </div>
+        <%= form.submit %>
+    </div>
+<% end %>
